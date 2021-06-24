@@ -74,11 +74,11 @@ function Navbar() {
          </div>
          <div className="qHeader__Rem">
            <div className="qHeader__avatar">
-             <Avatar
+             <Button variant="contained" color="primary"
                onClick={() => auth.signOut()}
                className="Avatar"
-               src={user.photo}
-             />
+              //  src={user.photo}
+             >Logout</Button>
            </div>
            {/* <LanguageIcon /> */}
            <Button onClick={() => setIsModalOpen(true)}>Add Question</Button>
