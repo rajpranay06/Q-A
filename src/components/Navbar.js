@@ -1,9 +1,9 @@
 import React,{useState} from 'react'
-import HomeIcon from '@material-ui/icons/Home';
-import FeaturedPlayListOutlinedIcon from "@material-ui/icons/FeaturedPlayListOutlined";
-import AssignmentTurnedInOutlinedIcon from '@material-ui/icons/AssignmentTurnedInOutlined';
-import PeopleAltOutlinedIcon from '@material-ui/icons/PeopleAltOutlined';
-import NotificationsOutlinedIcon from '@material-ui/icons/NotificationsOutlined';
+// import HomeIcon from '@material-ui/icons/Home';
+// import FeaturedPlayListOutlinedIcon from "@material-ui/icons/FeaturedPlayListOutlined";
+// import AssignmentTurnedInOutlinedIcon from '@material-ui/icons/AssignmentTurnedInOutlined';
+// import PeopleAltOutlinedIcon from '@material-ui/icons/PeopleAltOutlined';
+// import NotificationsOutlinedIcon from '@material-ui/icons/NotificationsOutlined';
 import SearchIcon from "@material-ui/icons/Search";
 import { Avatar,Input} from "@material-ui/core";
 import logo from './Logo.jpeg';
@@ -12,8 +12,11 @@ import "../css/Navbar.css";
 import {useSelector} from "react-redux";
 import { selectUser } from '../features/userSlice';
 import Modal from "react-modal";
+// import Home from './Home';
+// import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 //import LinkIcon from "@material-ui/icons/Link";
 //import LanguageIcon from "@material-ui/icons/Language";
+import { NavLink } from "react-router-dom";
 import db, { auth } from "../firebase";
 import {Link } from "@material-ui/icons";
 import firebase from "firebase";
@@ -25,7 +28,8 @@ function Navbar() {
      const [input, setInput] = useState("");
      const [inputUrl, setInputUrl] = useState("");
      const questionName = input;
-
+     const [click, setClick] = useState(false);
+     const handleClick = () => setClick(!click);
      const handleQuestion = (e) => {
        e.preventDefault();
        setIsModalOpen(false);
@@ -51,26 +55,48 @@ function Navbar() {
              alt=""
            />
          </div>
-         <div className="qHeader__icons">
-           <div className="active qHeader__icon">
-             <HomeIcon />
-           </div>
-           <div className="qHeader__icon">
-             <FeaturedPlayListOutlinedIcon />
-           </div>
-           <div className="qHeader__icon">
-             <AssignmentTurnedInOutlinedIcon />
-           </div>
-           <div className="qHeader__icon">
-             <PeopleAltOutlinedIcon />
-           </div>
-           <div className="qHeader__icon">
-             <NotificationsOutlinedIcon />
-           </div>
-         </div>
+         <nav className="navbar">
+            <div className="nav-container">
+            <ul className={click ? "nav-menu active" : "nav-menu"}>
+            <li className="nav-item">
+              <NavLink
+                exact
+                to="/home"
+                activeClassName="active"
+                className="nav-links"
+                onClick={handleClick}
+              >
+                Home
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                exact
+                to="/myposts"
+                activeClassName="active"
+                className="nav-links"
+                onClick={handleClick}
+              >
+                Myposts
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                exact
+                to="/notifications"
+                activeClassName="active"
+                className="nav-links"
+                onClick={handleClick}
+              >
+                Notifications
+              </NavLink>
+                </li>
+              </ul>
+            </div>
+          </nav>
          <div className="qHeader__input">
            <SearchIcon />
-           <input type="text" placeholder="Search Quora" />
+           <input type="text" placeholder="Search Question" />
          </div>
          <div className="qHeader__Rem">
            <div className="qHeader__avatar">
