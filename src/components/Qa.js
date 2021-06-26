@@ -4,7 +4,7 @@ import '../css/Qa.css'
 import Feed from './Feed'
 import Home from "./Home";
 import Myposts from "./Myposts";
-import Notifications from "./Notifications";
+import Profile from "./Profile";
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 function Qa() {
     return (
@@ -12,14 +12,15 @@ function Qa() {
             <Router>
             <Navbar />
                 <Switch>
+                    <Route path='/' exact component = {Home} />
                     <Route path="/home" component={Home}/>
                     <Route path="/myposts" component={Myposts}/>
-                    <Route path="/notifications" component={Notifications}/>
+                    <Route path="/profile" component={Profile}/>
                 </Switch>
             </Router>
-            <div className="qa__content">
+            {/* <div className="qa__content">
                 <Feed />
-            </div>      
+            </div>       */}
         </div>
 
     )

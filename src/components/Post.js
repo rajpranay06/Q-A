@@ -148,14 +148,17 @@ function Post({ Id, question, imageUrl, timestamp, users }) {
                       right: "0px",
                     }}
                   >
-                    <span style={{ color: "#b92b27" }}>
+                    </span>
+                    <span style={{ color: "#b92b27" ,
+                      fontSize: "small",
+                  }}>
+                      {"    "}by -{" "}
                       {answers.user.displayName
                         ? answers.user.displayName
                         : answers.user.email}{" "}
                       on{" "}
                       {new Date(answers.timestamp?.toDate()).toLocaleString()}
                     </span>
-                  </span>
                 </span>
               ) : (
                 ""
@@ -170,13 +173,15 @@ function Post({ Id, question, imageUrl, timestamp, users }) {
           <ArrowUpwardOutlinedIcon />
           <ArrowDownwardOutlinedIcon />
         </div>
-
-        <RepeatOutlinedIcon />
+        <div className = "Comments">
         <ChatBubbleOutlineOutlinedIcon />
-        <div className="post__footerLeft">
+        </div>
+        {/* <RepeatOutlinedIcon />
+        <ChatBubbleOutlineOutlinedIcon /> */}
+        {/* <div className="post__footerLeft">
           <ShareOutlined />
           <MoreHorizOutlined />
-        </div>
+        </div> */}
       </div>
     </div>
   );

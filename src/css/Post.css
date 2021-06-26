@@ -79,14 +79,24 @@
   .post__footerAction > .MuiSvgIcon-root:hover {
     color: rgb(0, 140, 255);
     margin-right: 40px;
+    cursor: pointer;
   }
+  .Comments{
+    margin-left: 40px;
+    cursor: pointer;
+  }
+
+  .Comments:hover{
+    color: rgb(0, 140, 255);
+  }
+
   .post__footerleft {
     margin-left: auto;
   }
   .post__footerleft  > .MuiSvgIcon-root {
     color: gray;
     cursor: pointer;
-    margin-left: 30px;
+    margin-left: 40px;
   }  
 
   .modal__question {

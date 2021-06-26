@@ -1,9 +1,10 @@
 import React from 'react'
 // import Post from './Post'
+import Feed from './Feed'
 function Home() {
     return (
         <div>
-            {/* <Post /> */}
+            <Feed />
         </div>
     )
 }

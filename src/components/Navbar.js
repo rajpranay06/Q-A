@@ -83,12 +83,12 @@ function Navbar() {
             <li className="nav-item">
               <NavLink
                 exact
-                to="/notifications"
+                to="/profile"
                 activeClassName="active"
                 className="nav-links"
                 onClick={handleClick}
               >
-                Notifications
+                Profile
               </NavLink>
                 </li>
               </ul>
