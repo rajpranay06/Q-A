@@ -13,7 +13,6 @@
 .qHeader__logo > img{
     height:50px;
     margin-right: 20px;
-    cursor: pointer;
 }
 .qHeader__icons{
     display: flex;
